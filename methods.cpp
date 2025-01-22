@@ -38,13 +38,13 @@ int sumOfDigits(int num)
     return num;
 }
 
-bool isEven(int num)
+void isEven(int num)
 {
 
     if (num % 2 == 0)
     {
         cout << "true" << endl;
-        return true;
+        cout << "true" << endl;
     }
     else
     {
