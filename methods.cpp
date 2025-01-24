@@ -2,23 +2,41 @@
 using namespace std;
 
 int sum = 0;
+int num = 0;
 
-void isEven(int num);
+bool isEven(int num);
 void sumOfDigits(int num);
-void isPrime(int num);
-void isSpecialNumber(int num);
+bool isPrime(int num);
+bool isSpecialNumber(int num);
 
 
 
 int main() {
-    int num;
     cout << "enter a number" << endl;
     cin >> num;
-    isEven(num);
-    sumOfDigits(num);
-    isPrime(num);
-    isSpecialNumber(num);
+    cout << " " << endl;
+    if (isEven(num)) {
+        cout << "Is Even: True" << endl;
+        
+    } else {
+        cout << "Is Even: False" << endl;
+    }
 
+    sumOfDigits(num);
+
+    if (isPrime(num)) {
+
+        cout << "Is Prime: True" << endl;
+    }else {
+        cout << "Is Prime: False" << endl;
+    }
+
+    if (isSpecialNumber) {
+        
+        cout << "Is Special Number: True" << endl;
+    }else {
+        cout << "Is Special Number: False" << endl;
+    }
 
     return 0;
     
@@ -38,24 +56,23 @@ void sumOfDigits(int num)
     cout << sum << endl;
 }
 
-void isEven(int num)
+bool isEven(int num)
 {
 
     if (num % 2 == 0)
     {
-        cout << "True" << endl;
-        bool even = true;
+        return true;
     }
     else
     {
-        cout << "False" << endl;
+        return false;
     }
 }
 
-void isPrime(int num)
+bool isPrime(int num)
 {
     if (num <= 1)  {
-        cout << "false" << endl;
+        return false;
     } else {
 
     int cnt =0;
@@ -65,18 +82,18 @@ void isPrime(int num)
     }
 
     cnt == 2; 
-    cout << "True" << endl;
+    return true;
     }
 }
 
-void isSpecialNumber(int num) {
+bool isSpecialNumber(int num) {
     num = sum;
     
-    if (isEven) {
-        cout << "true" << endl;
+    if (isEven && isPrime) {
+        return true;
     }
     else {
-        cout << "false" << endl;
+        return false;
     }
 
 }
