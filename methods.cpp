@@ -5,7 +5,7 @@ int sum = 0;
 int num = 0;
 
 bool isEven(int num);
-void sumOfDigits(int num);
+int sumOfDigits(int num);
 bool isPrime(int num);
 bool isSpecialNumber(int num);
 
@@ -31,7 +31,7 @@ int main() {
         cout << "Is Prime: False" << endl;
     }
 
-    if (isSpecialNumber) {
+    if (isSpecialNumber(num)) {
         
         cout << "Is Special Number: True" << endl;
     }else {
@@ -42,7 +42,7 @@ int main() {
     
 }
 
-void sumOfDigits(int num)
+int sumOfDigits(int num)
 {
     while (num != 0)
     {
@@ -53,7 +53,7 @@ void sumOfDigits(int num)
 
         num /= 10;
     }
-    cout << sum << endl;
+    return sum;
 }
 
 bool isEven(int num)
@@ -76,24 +76,36 @@ bool isPrime(int num)
     } else {
 
     int cnt =0;
-    for (int i = 1; i <= num; i++) {if (num % i == 0)  {
+    for (int i = 1; i <= num; i++) {if (num % i == 0)  
         cnt++;
-        }
     }
 
-    cnt == 2; 
-    return true;
+    if (cnt > 2)
+        return false;
+     
+    else 
+        return true;
     }
 }
 
 bool isSpecialNumber(int num) {
-    num = sum;
     
-    if (isEven && isPrime) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    if (!isEven(num)) {
 
+        return false;
+    } else {
+        num = sum;
+
+        if (isPrime) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
+        
+
+    
+    
+
