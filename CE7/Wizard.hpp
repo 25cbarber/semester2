@@ -16,14 +16,14 @@ class wizard {
 
 
 string displayInfo() {
-    string info = "Name: " + name + "\nelement: " + element + "\nLevel: " + to_string(level) + "\nMP: " + to_string(mp);
+    string info = "\nName: " + name + "\nElement: " + element + "\nLevel: " + to_string(level) + "\nMP: " + to_string(mp) + "\n";
     return info;
 
 }
 
 void castSpell(int damage) {
     if (mp >= damage){
-    mp = mp - damage; 
+        mp -= damage; 
     } else {
         mp = 0;
     }

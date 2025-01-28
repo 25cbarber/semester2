@@ -15,14 +15,15 @@ int main() {
     cout << "what is another name?: " << endl;
     cin >> choice;
 
+
     wizard obj2(choice, "water", 20, 90);
     wizardInfo = obj2.displayInfo();
     cout << wizardInfo << endl;
 
-    obj2.castSpell(damage);
-    cout << wizardInfo << endl;
+    obj2.castSpell(10);
+    cout << obj2.displayInfo() << endl;
     obj2.recharge();
-    cout << wizardInfo << endl;
+    cout << obj2.displayInfo() << endl;
 
 
 
