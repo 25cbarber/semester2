@@ -90,21 +90,11 @@ bool isPrime(int num)
 
 bool isSpecialNumber(int num) {
     
-    if (!isEven(num)) {
-
-        return false;
-    } else {
-        num = sum;
-
-        if (isPrime) {
-            return true;
-        } else {
-            return false;
-        }
-
+    if (isEven(num) && isPrime(num)) {
+        return true;
     }
 }
-        
+
 
     
     
