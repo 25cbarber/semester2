@@ -90,9 +90,7 @@ bool isPrime(int num)
 
 bool isSpecialNumber(int num) {
     
-    if (isEven(num) && isPrime(num)) {
-        return true;
-    }
+    return isEven(num) && isPrime(num);
 }
 
 
