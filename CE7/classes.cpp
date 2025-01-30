@@ -20,7 +20,7 @@ int main() {
     wizardInfo = obj2.displayInfo();
     cout << wizardInfo << endl;
 
-    obj2.castSpell(10);
+    obj1.castSpell(obj2, 10);
     cout << obj2.displayInfo() << endl;
     obj2.recharge();
     cout << obj2.displayInfo() << endl;
