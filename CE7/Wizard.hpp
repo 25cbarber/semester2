@@ -13,7 +13,7 @@ class wizard {
     public:
          wizard (string name, string element, int level, int maxMp);
          string displayInfo();
-         void castSpell(wizard &target, int damage);
+         virtual void castSpell(wizard &target, int damage);
          void recharge();
 };
 

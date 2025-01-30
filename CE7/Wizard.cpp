@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Wizard.hpp"
 
+
 using namespace std;
 
 
 
-        wizard::wizard (string name, string element, int level, int maxMp) : name(name), element(element), level(level), maxMp(maxMp), mp(maxMp) {}
+wizard::wizard (string name, string element, int level, int maxMp) : name(name), element(element), level(level), maxMp(maxMp), mp(maxMp) {}
 
 
 
