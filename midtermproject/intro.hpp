@@ -1,6 +1,7 @@
 #include <iostream>
 #include "tasks.hpp"
 #include <string>
+#include <limits>
 using namespace std;
 
 vector<task> task::sunvect;
@@ -18,27 +19,47 @@ void createTask();
 
 void Intro() {
     int introchoice;
-    cout << "Do you want to:\n 1. Create new task\n 2. View schedule\n 3. Complete a task\n \nEnter a number: ";
-    cin >> introchoice;
 
-    switch (introchoice) {
-        case 1:
-            createTask();
-            break;
-        case 2:
+    while (true) {
+        cout << "\nDo you want to:\n 1. Create new task\n 2. View schedule\n 3. Complete a task\n 4. Delete all tasks\n 5. Quit\n \nEnter a number: ";
+        cin >> introchoice;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a valid number.\n";
+            continue;
+        }
+
+        switch (introchoice) {
+            case 1:
+                createTask();
+                break;
+
+            case 2:
+                displaytasks();
+                break;
             
-        default:
-            cout << "Invalid choice. Please enter a number from the options above.\n";
-            Intro(); 
+            case 3:
+            deletingtasks();
             break;
-    }
+
+            case 5:
+                cout << "GoodBye!" << endl;
+                return;
+
+            default:
+                cout << "Invalid choice. Please enter a number from the options above.\n";
+                break;
+        }
+    }    
 }
 
 void createTask() {
     string dayOfWeek;
     string nameOfTask;
 
-    cout << "What day of the week do you want to create the task?: ";
+    cout << "\nWhat day of the week do you want to create the task?: ";
     cin >> dayOfWeek;
     cin.ignore();
 
@@ -62,10 +83,11 @@ void createTask() {
     } else if (dayOfWeek == "Sunday" || dayOfWeek == "sunday") {
         task::sunvect.emplace_back(newtask);
     } else {
-        cout << "Invalid day entered. Please enter a valid day of the week.\n";
-        return;
+        cout << "\nInvalid day entered. Please enter a valid day of the week.\n";
+        createTask();
     }
 
-    cout << "New Task Created on " + dayOfWeek << endl;
+    cout << "\nNew Task Created on " + dayOfWeek << endl;
+    Intro();
 
 }
