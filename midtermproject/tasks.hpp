@@ -20,6 +20,42 @@ public:
     task(string dayOfWeek, string name, bool complete);
 };
 
+void createTask() {
+    string dayOfWeek;
+    string nameOfTask;
+
+    cout << "\nWhat day of the week do you want to create the task?: ";
+    cin >> dayOfWeek;
+    cin.ignore();
+
+    cout << "What is the task?: ";
+    getline(cin, nameOfTask);
+
+    task newtask(dayOfWeek, nameOfTask, false);
+
+    if (dayOfWeek == "Monday" || dayOfWeek == "monday") {
+        task::monvect.emplace_back(newtask);
+    } else if (dayOfWeek == "Tuesday" || dayOfWeek == "tuesday") {
+        task::tuesvect.emplace_back(newtask);
+    } else if (dayOfWeek == "Wednesday" || dayOfWeek == "wednesday") {
+        task::wedvect.emplace_back(newtask);
+    } else if (dayOfWeek == "Thursday" || dayOfWeek == "thursday") {
+        task::thursvect.emplace_back(newtask);
+    } else if (dayOfWeek == "Friday" || dayOfWeek == "friday") {
+        task::frivect.emplace_back(newtask);
+    } else if (dayOfWeek == "Saturday" || dayOfWeek == "saturday") {
+        task::satvect.emplace_back(newtask);
+    } else if (dayOfWeek == "Sunday" || dayOfWeek == "sunday") {
+        task::sunvect.emplace_back(newtask);
+    } else {
+        cout << "\nInvalid day entered. Please enter a valid day of the week.\n";
+        createTask();
+    }
+
+    cout << "\nNew Task Created on " + dayOfWeek << endl;
+
+}
+
 void displaytasks() {
 
     cout << "\nSunday:" << endl;
@@ -63,9 +99,10 @@ void deletingtasks() {
 
     cout << "What day is the task on?: ";
     cin >> deleteday;
+    cin.ignore();
 
     cout << "What task was completed?: ";
-    cin >> deletetask;
+    getline(cin, deletetask);
 
     vector<task>* day_vector = nullptr;
 
@@ -90,12 +127,11 @@ void deletingtasks() {
     }
 
     if (day_vector != nullptr) {
-        // Use remove_if to move the elements to be removed to the end of the vector
+
         auto new_end = remove_if(day_vector->begin(), day_vector->end(), [&](const task& t) {
             return t.name == deletetask;
         });
 
-        // Erase the elements from the end of the vector
         day_vector->erase(new_end, day_vector->end());
 
         cout << "Task \"" << deletetask << "\" removed from " << deleteday << ".\n";
