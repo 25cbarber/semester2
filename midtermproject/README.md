@@ -1,0 +1,2 @@
+day of the week is monday, tuesday, wednesday, thursday, friday, saturday, and sunday
+make sure you type the exact spelling of the task you want to complete (if you forgot you can view your tasks using 2)

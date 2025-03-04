@@ -44,7 +44,7 @@ void Intro() {
                 deletingtasks();
                 break;
 
-            case 5:
+            case 4:
                 cout << "GoodBye!" << endl;
                 return;
 
