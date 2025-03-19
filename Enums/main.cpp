@@ -17,5 +17,10 @@ int main() {
     newpokemon2.changeStatus(poisoned);
     cout << newpokemon2.displayInfo() << endl;
 
+    newpokemon2.addMove("Thunderbolt", electric, 90, 0.95);
+    newpokemon2.addMove("Quick Attack", grass, 40, 1.0);
+
+    newpokemon2.displayMoves();
+
 
 }

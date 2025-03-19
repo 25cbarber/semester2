@@ -10,6 +10,37 @@ enum pokemonStatus {
     normal, paralyzed, poisoned, asleep
 };
 
+string typeToString(pokemonTypes type) {
+    switch (type) {
+        case water: return "Water";
+        case fire: return "Fire";
+        case electric: return "Electric";
+        case grass: return "Grass";
+        case fighting: return "Fighting";
+        default: return "Unknown";
+    }
+}
+
+struct Move {
+    string name;
+    int power;
+    double accuracy;
+    pokemonTypes type;
+
+    Move(const string& moveName, pokemonTypes moveType, int movePower, double moveAccuracy)
+    : name(moveName), type(moveType), power(movePower), accuracy(moveAccuracy) {}
+
+    Move() : name(""), type(water), power(0), accuracy(0.0) {}
+
+    string toString() const {
+        return "Move Name: " + name + "\n" + 
+        "Type: " + typeToString(type) + "\n" +
+        "Power: " + to_string(power) + "\n" +
+        "Accuracy: " + to_string(accuracy) + "\n";
+}
+
+};
+
 class pokemon {
 
     private:
@@ -18,16 +49,8 @@ class pokemon {
         pokemonTypes type;
         pokemonStatus status;
 
-        string typeToString(pokemonTypes type) const {
-            switch (type) {
-                case water: return "Water";
-                case fire: return "Fire";
-                case electric: return "Electric";
-                case grass: return "Grass";
-                case fighting: return "Fighting";
-                default: return "Unknown";
-            }
-        }
+        Move moves[4];
+        int moveCount = 0;
     
         string statusToString(pokemonStatus status) const {
             switch (status) {
@@ -60,6 +83,26 @@ class pokemon {
         void changeStatus(pokemonStatus newStatus) {
             status = newStatus;
         }
+
+        bool addMove(const string& name, pokemonTypes type, int power, double accuracy) {
+            if (moveCount >= 4) {
+                cout << "Error: Move array is full. Cannot add more moves." << endl;
+                return false;
+            }
+            moves[moveCount] = Move(name, type, power, accuracy);
+            moveCount++;
+            return true;
+        }
+
+    void displayMoves() const {
+        cout << "Moves:" << endl;
+        for (int i = 0; i < moveCount; i++) {
+            cout << moves[i].toString() << endl;
+            cout << "-----------------" << endl;
+        }
+    }
+
+        
 
 
 
