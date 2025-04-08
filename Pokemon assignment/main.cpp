@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "pokemon.hpp"
-using namespace std;
+using namespace PokeData;
 
 int main() {
     
